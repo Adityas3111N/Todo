@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,14 +8,14 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const JWT_SECRET = 'money-challenge-super-secret-key-10cr';
+const JWT_SECRET = process.env.JWT_SECRET || 'money-challenge-super-secret-key-10cr';
 
 app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB Connection
-const MONGO_URI = 'mongodb+srv://Adityas3111N:0Ok0ZbOP01pIxEzS@cluster0.knolz.mongodb.net/todo-db?retryWrites=true&w=majority';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://Adityas3111N:0Ok0ZbOP01pIxEzS@cluster0.knolz.mongodb.net/todo-db?retryWrites=true&w=majority';
 mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB Atlas');
@@ -399,6 +400,10 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+// Export app for serverless environments (like Vercel)
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
+  });
+}
+module.exports = app;

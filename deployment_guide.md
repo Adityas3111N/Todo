@@ -30,6 +30,9 @@ Render will host your Express server and serve the frontend statically.
    - **Build Command**: `npm install`
    - **Start Command**: `npm start`
    - **Instance Type**: Select the **Free** plan.
+   - **Environment Variables**: Click the **Advanced** button (or go to **Environment** tab after creation) and add:
+     * `MONGO_URI`: `mongodb+srv://Adityas3111N:0Ok0ZbOP01pIxEzS@cluster0.knolz.mongodb.net/todo-db`
+     * `JWT_SECRET`: `your_custom_secret_key` (generate any secure random text)
 5. **Click Deploy**: Render will build and deploy your Express backend. Your web app will be live on a `https://your-app-name.onrender.com` URL.
 
 ---
@@ -42,6 +45,9 @@ We have already added the necessary `vercel.json` configuration to package your 
    - Go to [Vercel](https://vercel.com/) and log in with GitHub.
    - Click **Add New...** -> **Project**.
    - Select your connected GitHub repository and click **Import**.
-2. **Framework Preset**: Leave as **Other**.
-3. **Root Directory**: `./`
-4. **Deploy**: Click **Deploy**. Vercel will automatically read `vercel.json` and deploy both your frontend files and Express API serverless functions.
+2. **Environment Variables**: In the import wizard under the **Environment Variables** section, add:
+   * `MONGO_URI`: `mongodb+srv://Adityas3111N:0Ok0ZbOP01pIxEzS@cluster0.knolz.mongodb.net/todo-db`
+   * `JWT_SECRET`: `your_custom_secret_key`
+3. **Framework Preset**: Leave as **Other**.
+4. **Root Directory**: `./`
+5. **Deploy**: Click **Deploy**. Vercel will automatically read `vercel.json` and deploy both your frontend files and Express API serverless functions.
