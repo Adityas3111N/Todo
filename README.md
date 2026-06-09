@@ -2,6 +2,8 @@
 
 A premium, money-themed Full-Stack Personal Task & Sales Consistency Tracker. This application is optimized to run locally (double-click launch) or hosted on Vercel/Render, keeping you motivated to hit your financial milestone over a 365-day countdown.
 
+### 🌐 Live Demo: [https://todo-ruby-alpha.vercel.app](https://todo-ruby-alpha.vercel.app)
+
 ---
 
 ## ✨ Key Features
@@ -55,6 +57,9 @@ A premium, money-themed Full-Stack Personal Task & Sales Consistency Tracker. Th
 
 ## 🌐 Cloud Deployment
 
-Refer to the step-by-step **[deployment_guide.md](./deployment_guide.md)** to host your tracker online:
+The application is deployed on **Vercel** at [https://todo-ruby-alpha.vercel.app](https://todo-ruby-alpha.vercel.app).
+
+If you want to deploy your own custom fork, refer to **[deployment_guide.md](./deployment_guide.md)**:
 * **Vercel** configuration is pre-configured via the root `vercel.json` file.
 * **Render** can easily deploy the Node/Express backend on its free tier.
+
